@@ -36,32 +36,23 @@
                 <li class="menu-separator">
                     <span>|</span>
                 </li>
-                <!-- Language List -->
+                <!-- Translation Language -->
                 {{ if .IsTranslated }}
-                    <li>
-                        <select aria-label="Select Language" class="lang-list" id="select-language" onchange="location = this.value;">
-                            {{ $siteLanguages := .Site.Languages}}
-                            {{ $pageLang := .Page.Lang}}
-                            {{ range .Page.AllTranslations }}
-                                {{ $translation := .}}
-                                {{ range $siteLanguages }}
-                                    {{ if eq $translation.Lang .Lang }}
-                                        {{ $selected := false }}
-                                        {{ if eq $pageLang .Lang}}
-                                            <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" selected>{{ .LanguageCode | upper }}
-                                            </option>
-                                        {{ else }}
-                                            <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}">{{ .LanguageCode | upper }}</option>
-                                        {{ end }}
-                                    {{ end }}
-                                {{ end }}
-                            {{ end }}
-                        </select>                
-                    </li>
-                    <li class="menu-separator">
-                        <span>|</span>
-                    </li>
+                    {{ $pageLang := .Page.Lang}}
+                    {{ range .Page.AllTranslations }}
+                        {{ $translation := .}}
+                        {{ if ne $translation.Lang $pageLang }}
+                            <li>
+                                <a class="menu-link" href="{{ $translation.Permalink }}">
+                                    {{ $translation.Lang | upper }}
+                                </a>
+                            </li>
+                        {{ end }}
+                    {{ end }}
                 {{ end }}
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
             </ul>
             <a id="mode" href="#">
                 {{ partial "svgs/sun.svg" (dict "height" 21 "width" 21 "class" "mode-sunny" "title" "LIGHT") . }}
