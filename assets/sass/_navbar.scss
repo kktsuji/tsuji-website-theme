@@ -37,7 +37,8 @@
     }
 
     .menu-separator {
-      margin-right: .7rem;
+      margin-right: .3rem;
+      margin-left: .3rem;
       @include media-query($on-mobile) {
         display: none;
       }
@@ -49,6 +50,8 @@
       transform: scale(1, 1);
       opacity: 0.7;
       z-index: 1;
+      margin-left: .4rem;
+      margin-bottom: .2rem;
 
       &:hover {
         cursor: pointer;
@@ -151,6 +154,8 @@
       a#mode {
         left: 10px;
         top: 12px;
+        margin-top: .7rem;
+        margin-right: .4rem;
       }
 
       .menu-icon {
