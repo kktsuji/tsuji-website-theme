@@ -162,7 +162,7 @@
         display: block;
         position: absolute;
         right: 0;
-        margin: .7rem .3rem 0 0;
+        margin: .7rem .8rem 0 0;
         cursor: pointer;
         text-align: center;
         z-index: 1;
@@ -205,6 +205,11 @@
           margin: 0;
           padding: 2px 0;
         }
+      }
+
+      .menu-link.title {
+        float: left;
+        margin: 0 0 0 1rem;
       }
     }
   }
