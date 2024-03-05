@@ -21,16 +21,18 @@
         opacity: 1;
       }
     }
-    @include media-query($on-mobile) {
-      padding-top: .3rem;
+    // @include media-query($on-mobile) {
+    //   padding-top: .3rem;
 
-    }
+    // }
   }
   // Navigation
   .menu {
     user-select: none;
     -ms-user-select: none;
     -webkit-user-select: none;
+    margin-right: .6rem;
+    margin-left: .2rem;
 
     ul {
       margin: 0;
@@ -39,9 +41,9 @@
     .menu-separator {
       margin-right: .3rem;
       margin-left: .3rem;
-      @include media-query($on-mobile) {
-        display: none;
-      }
+      // @include media-query($on-mobile) {
+      //   display: none;
+      // }
     }
 
 
@@ -106,12 +108,12 @@
       padding: 0;
       list-style: none;
 
-        @include media-query($on-mobile) {
-            display: block;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
+        // @include media-query($on-mobile) {
+        //     display: block;
+        //     margin: 0;
+        //     padding: 0;
+        //     list-style: none;
+        // }
     }
 
     .menu-link {
@@ -130,9 +132,9 @@
         margin-right: 5px;
       }
 
-      @include media-query($on-mobile) {
-        opacity: 0.8;
-      }
+      // @include media-query($on-mobile) {
+      //   opacity: 0.8;
+      // }
     }
 
     .menu-link.active {
@@ -141,75 +143,75 @@
     }
 
     @include media-query($on-mobile) {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 2;
-      text-align: center;
-      height: 50px;
-      background-color: $white;
-      border-bottom: 1px solid $light;
+      // position: fixed;
+      // top: 0;
+      // left: 0;
+      // right: 0;
+      // z-index: 2;
+      // text-align: center;
+      // height: 50px;
+      // background-color: $white;
+      // border-bottom: 1px solid $light;
 
-      a#mode {
-        left: 10px;
-        top: 12px;
-        margin-top: .7rem;
-        margin-right: .4rem;
-      }
+      // a#mode {
+      //   left: 10px;
+      //   top: 12px;
+      //   margin-top: .7rem;
+      //   margin-right: .4rem;
+      // }
 
-      .menu-icon {
-        display: block;
-        position: absolute;
-        right: 0;
-        margin: .7rem .8rem 0 0;
-        cursor: pointer;
-        text-align: center;
-        z-index: 1;
-        > svg {
-          opacity: 0.7;
-        }
-        &:hover {
-          > svg {
-            opacity: 1;
-          }
-        }
-        &:active {
-          -webkit-transform: scale(0.9, 0.9);
-          transform: scale(0.9, 0.9);
-        }
-      }
+      // .menu-icon {
+      //   display: block;
+      //   position: absolute;
+      //   right: 0;
+      //   margin: .7rem .8rem 0 0;
+      //   cursor: pointer;
+      //   text-align: center;
+      //   z-index: 1;
+      //   > svg {
+      //     opacity: 0.7;
+      //   }
+      //   &:hover {
+      //     > svg {
+      //       opacity: 1;
+      //     }
+      //   }
+      //   &:active {
+      //     -webkit-transform: scale(0.9, 0.9);
+      //     transform: scale(0.9, 0.9);
+      //   }
+      // }
 
-      input[type="checkbox"]:not(:checked) ~ .trigger {
-        clear: both;
-        visibility: hidden;
-      }
+      // input[type="checkbox"]:not(:checked) ~ .trigger {
+      //   clear: both;
+      //   visibility: hidden;
+      // }
 
-      input[type="checkbox"]:checked ~ .trigger {
-        position: fixed;
-        animation: 0.2s ease-in forwards fadein;
-        -webkit-animation: 0.2s ease-in forwards fadein;
-        flex-direction: column;
-        justify-content: center;
-        height: 100vh;
-        width: 100%;
-        top: 0;
-      }
+      // input[type="checkbox"]:checked ~ .trigger {
+      //   position: fixed;
+      //   animation: 0.2s ease-in forwards fadein;
+      //   -webkit-animation: 0.2s ease-in forwards fadein;
+      //   flex-direction: column;
+      //   justify-content: center;
+      //   height: 100vh;
+      //   width: 100%;
+      //   top: 0;
+      // }
 
-      .menu-link {
-        display: block;
-        box-sizing: border-box;
-        font-size: 1.1em;
+      // .menu-link {
+      //   display: block;
+      //   box-sizing: border-box;
+      //   font-size: 1.1em;
 
-        &:not(:last-child) {
-          margin: 0;
-          padding: 2px 0;
-        }
-      }
+      //   &:not(:last-child) {
+      //     margin: 0;
+      //     padding: 2px 0;
+      //   }
+      // }
 
-      .menu-link.title {
-        float: left;
-        margin: 0 0 0 1rem;
-      }
+      // .menu-link.title {
+      //   float: left;
+      //   margin: 0 0 0 1rem;
+      // }
     }
   }
