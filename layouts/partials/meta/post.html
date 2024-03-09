@@ -1,5 +1,4 @@
 {{/*  These meta tags are rendered only in the posts section (i.e. in single/list page)  */}}
-{{ if eq .Section "posts" }}
     {{ $ISO_date := dateFormat "2006-01-02T15:04:05Z0700" .Date | safeHTML }}
     <!-- Pagination meta tags for list pages only -->
     {{ if ne .Page.Kind "page" }}
@@ -37,18 +36,18 @@
 
     <script defer type="application/ld+json">
     {
-        "@context": "http://schema.org",
+        "@context": {{ .Site.BaseURL }},
         "@type": "Article",
         "headline": {{ .Title }},
         "author": {
         "@type": "Person",
-        "name": "{{ .Site.Params.github }}"
+        "name": "{{ .Site.Params.author.name }}"
         },
-        "datePublished": "{{ dateFormat "2006-01-02" .Date }}",
+        "datePublished": "{{ .Date }}",
         "description": {{ .Description }},
         "wordCount": {{ .WordCount }},
         "mainEntityOfPage": "True",
-        "dateModified": "{{ dateFormat "2006-01-02" .Lastmod }}",
+        "dateModified": "{{ .Lastmod }}",
         "image": {
         "@type": "imageObject",
         "url": "{{ with .Params.image }}{{ . | absURL }}{{ end }}"
@@ -59,4 +58,3 @@
         }
     }
     </script>
-{{ end }}
