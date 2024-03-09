@@ -4,10 +4,20 @@
         <article>
             <header class="header">
                 <h1 class="header-title">{{ .Title }}</h1>
+                {{ $modified := true }}
+                {{ if eq .Date .Lastmod }}
+                    {{ $modified = false }}
+                {{ end }}
+                {{ $lastmod := .Lastmod }}
+                {{ $ISO_time_modified := dateFormat "2006-01-02T15:04:05-07:00" $lastmod }}
+
                 {{ with .Date }}
                 {{ $ISO_time := dateFormat "2006-01-02T15:04:05-07:00" . }}
                 <div class="post-meta">
                     <time datetime="{{ $ISO_time }}" itemprop="datePublished"> {{ . | time.Format ":date_medium" }} </time>
+                    {{ if eq $modified true }}
+                        <time datetime="{{ $ISO_time_modified }}" itemprop="dateMdified"> Updated: {{ $lastmod | time.Format ":date_medium" }} </time>
+                    {{ end }}
                 </div>
                 {{ end }}
             </header>
