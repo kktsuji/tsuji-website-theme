@@ -3,6 +3,17 @@
     <main class="page-content" aria-label="Content">
         <article>
             <header class="header">
+                {{ $home := .Site.Home.Permalink }}
+                <div class="breadcrumb">
+                {{ with .Section }}
+                    <ul>
+                        <li><a style="color: gray;" href="{{ $home }}"> Home </a></li>
+                        <li>/</li>
+                        <li><a style="color: gray;" href="{{ $home }}{{ . }}"> {{ . | title }} </a></li>
+                    </ul>
+                {{ end }}
+                </div>
+                
                 <h1 class="header-title">{{ .Title }}</h1>
                 {{ $modified := true }}
                 {{ if eq .Date .Lastmod }}
