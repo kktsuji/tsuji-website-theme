@@ -282,6 +282,8 @@ table {
   margin-top: $spacing-half;
   border-collapse: collapse;
   font-size: $small-font-size;
+  display: block;
+  overflow-x: auto;
 
   thead {
     font-weight: $bold-weight;
@@ -305,11 +307,11 @@ table {
 }
 
 // When mouse block a text set this color
-mark,
-::selection {
-  background: #fffba0;
-  color: $black;
-}
+//mark,
+//::selection {
+//  background: #fffba0;
+//  color: $black;
+//}
 
 // Github Gist clear border
 .gist {
