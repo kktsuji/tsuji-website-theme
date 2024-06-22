@@ -1,12 +1,14 @@
-{{ $avatar_img := .Site.Params.author.avatar }}
+<!--{{ $avatar_img := .Site.Params.author.avatar }}-->
+{{ $avatar_img_url := .Site.Params.author.avatar_url }}
 {{ $avatar_img_alt := .Site.Params.author.name }}
-{{ $image := resources.Get $avatar_img }}
+<!--{{ $image := resources.Get $avatar_img }}-->
 <div class="author">
-    {{ with $image }}
+    <!--{{ with $image }}
     {{ $image := $image.Fill "100x100 webp" }}
     <img class="author-avatar" src="{{ $image.RelPermalink }}" alt="{{ $avatar_img_alt }}" width="{{ .Width }}"
         height="{{ .Height }}" />
-    {{ end }}
+    {{ end }}-->
+    <img class="author-avatar" src="{{ $avatar_img_url }}" alt="{{ $avatar_img_alt }}" />
     <h2 class="author-name">{{ .Site.Params.author.intro }}</h2>
     <p class="author-bio">{{ .Site.Params.author.description }}</p>
 </div>
