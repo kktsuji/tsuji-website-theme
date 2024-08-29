@@ -3,7 +3,10 @@
   translation: "Home"
   
 - id: "home.recent_posts"
-  translation: "Recent Posts"
+  translation: "Recent Blog Posts"
+
+- id: "home.recent_til_posts"
+  translation: "Recent Today I Learned (TIL) Posts"
 
 - id: "home.see_all_posts"
   translation: "See all posts"

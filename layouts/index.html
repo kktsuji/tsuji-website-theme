@@ -32,6 +32,20 @@
                 {{ end }}
             </p>
             {{ end }}
+            <h3 class="posts-item-note" aria-label="Recent Posts" style="margin-top: 5rem;">{{ T "home.recent_til_posts" }}</h3>
+            {{/* Show last 5 posts in reverse date order */}}
+            {{ $pagesToShow := where .Sites.First.RegularPages "Type" "til" }}
+            {{ $posts := $pagesToShow.ByDate.Reverse }}
+            {{ range first 5 $posts }}
+            {{ partial "postCard" . }}
+            {{ end }}
+            {{ if gt (len $posts) 5 }}
+            <p>
+                {{ range $firstSection := (where .Sites.First.Sections "Section" "til") }}
+                <a href="{{ $firstSection.Permalink }}">{{ T "home.see_all_posts" }}</a>
+                {{ end }}
+            </p>
+            {{ end }}
         </main>
     </div>
     {{- partial "footer.html" . -}}
