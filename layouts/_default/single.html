@@ -22,12 +22,13 @@
                 {{ $lastmod := .Lastmod }}
                 {{ $ISO_time_modified := dateFormat "2006-01-02T15:04:05-07:00" $lastmod }}
 
+                {{ $configDateFormat := .Site.Params.dateFormat | default "2 Jan 2006" }}
                 {{ with .Date }}
                 {{ $ISO_time := dateFormat "2006-01-02T15:04:05-07:00" . }}
                 <div class="post-meta">
-                    <time datetime="{{ $ISO_time }}" itemprop="datePublished"> {{ . | time.Format ":date_medium" }} </time>
+                    <time datetime="{{ $ISO_time }}" itemprop="datePublished"> {{ . | time.Format $configDateFormat }} </time>
                     {{ if eq $modified true }}
-                        <time datetime="{{ $ISO_time_modified }}" itemprop="dateMdified"> Updated: {{ $lastmod | time.Format ":date_medium" }} </time>
+                        <time datetime="{{ $ISO_time_modified }}" itemprop="dateMdified"> Updated: {{ $lastmod | time.Format $configDateFormat }} </time>
                     {{ end }}
                 </div>
                 {{ end }}

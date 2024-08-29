@@ -74,7 +74,7 @@
 
   .post-item-date {
     min-width: 96px;
-    color: $black;
+    color: $text-base-color;
 
     @include media-query($on-mobile) {
       font-size: 16px;
@@ -84,14 +84,15 @@
   .post-item-title {
     margin: 0;
     border: 0;
-    padding: 0;
+    padding: 0 1rem 0 0;
     font-size: $base-font-size;
     font-weight: normal;
     letter-spacing: 0.1px;
+    display:inline-block;
 
-    @include media-query($on-mobile) {
-      max-width: 15rem;
-    }
+    // @include media-query($on-mobile) {
+    //   max-width: 15rem;
+    // }
 
     a {
       color: $text-base-color;
