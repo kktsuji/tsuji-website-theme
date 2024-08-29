@@ -78,6 +78,7 @@
                 "position": 2,
                 "name": "{{ $section | upper }}",
                 "item": "{{ $home }}{{ $section }}"
+                {{ if .IsPage }}
                 {{ with .CurrentSection }}
                 },{
                     {{ $id := partial "functions/getIdStr.html" .Title }}
@@ -86,6 +87,7 @@
                     "name": "{{ .Title }}",
                     "item": "{{ $home }}{{ $section }}#{{ $id }}"
                 {{ end }}
+                {{ end}}
             {{ else }}
                 "@type": "ListItem",
                 "position": 2,
