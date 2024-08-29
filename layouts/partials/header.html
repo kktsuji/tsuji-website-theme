@@ -36,11 +36,11 @@
                     {{ end }}
                 </li>
                 {{ end }}
+                <!-- Translation Language -->
+                {{ if .IsTranslated }}
                 <li class="menu-separator">
                     <span>|</span>
                 </li>
-                <!-- Translation Language -->
-                {{ if .IsTranslated }}
                     {{ $pageLang := .Page.Lang}}
                     {{ range .Page.AllTranslations }}
                         {{ $translation := .}}
