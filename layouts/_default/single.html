@@ -13,7 +13,8 @@
                         <li><a style="color: gray;" href="{{ $home }}{{ $section }}"> {{ $section | upper }} </a></li>
                         {{ with .CurrentSection }}
                             <li>/</li>
-                            <li><a style="color: gray;" href="{{ $home }}{{ $section }}#{{ .Title }}"> {{ .Title }} </a></li>
+                            {{ $id := partial "functions/getIdStr.html" .Title }}
+                            <li><a style="color: gray;" href="{{ $home }}{{ $section }}#{{ $id }}"> {{ .Title }} </a></li>
                         {{ end }}
                     {{ else }}
                         <li><a style="color: gray;" href="{{ $home }}{{ $section }}"> {{ $section | title }} </a></li>

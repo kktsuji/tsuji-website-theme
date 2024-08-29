@@ -80,10 +80,11 @@
                 "item": "{{ $home }}{{ $section }}"
                 {{ with .CurrentSection }}
                 },{
+                    {{ $id := partial "functions/getIdStr.html" .Title }}
                     "@type": "ListItem",
                     "position": 3,
                     "name": "{{ .Title }}",
-                    "item": "{{ $home }}{{ $section }}#{{ replace .Title " " "%20" }}"
+                    "item": "{{ $home }}{{ $section }}#{{ $id }}"
                 {{ end }}
             {{ else }}
                 "@type": "ListItem",

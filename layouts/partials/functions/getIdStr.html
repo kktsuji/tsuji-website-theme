@@ -1,0 +1,5 @@
+{{ $dst := replace . " " "-" }}
+{{ $dst := replace $dst "(" "" }}
+{{ $dst := replace $dst ")" "" }}
+{{ $dst := $dst | lower }}
+{{ return $dst }}

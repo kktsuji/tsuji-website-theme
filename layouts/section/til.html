@@ -6,7 +6,8 @@
     <main class="page-content" aria-label="Content">
         {{ range .Sections }}
         {{ $section := .Title }}
-        <h2 class="post-year">{{ $section }}</h2>
+        {{ $id := partial "functions/getIdStr.html" $section }}
+        <h2 class="post-year" id="{{ $id }}">{{ $section }}</h2>
 
         {{/* create a list of posts for each month, with month as heading */}}
 
