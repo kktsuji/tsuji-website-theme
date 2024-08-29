@@ -4,14 +4,14 @@
         <h1 class="header-title center">{{ .Title }}</h1>
     </header>
     <main class="page-content" aria-label="Content">
-        {{ range .Sections }}
+        {{ range .Sections.ByTitle }}
         {{ $section := .Title }}
         {{ $id := partial "functions/getIdStr.html" $section }}
         <h2 class="post-year" id="{{ $id }}">{{ $section }}</h2>
 
         {{/* create a list of posts for each month, with month as heading */}}
 
-        {{ range .Pages }}
+        {{ range .Pages.ByTitle }}
 
         {{ partial "postCard" . }}
 
