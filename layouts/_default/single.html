@@ -16,8 +16,10 @@
                             {{ $id := partial "functions/getIdStr.html" .Title }}
                             <li><a style="color: gray;" href="{{ $home }}{{ $section }}#{{ $id }}"> {{ .Title }} </a></li>
                         {{ end }}
-                    {{ else }}
+                    {{ else if eq $section "blog" }}
                         <li><a style="color: gray;" href="{{ $home }}{{ $section }}"> {{ $section | title }} </a></li>
+                    {{ else if eq $section "static" }}
+                        <li>{{ .Title | title }}</li>
                     {{ end }}
 
                 </ul>
