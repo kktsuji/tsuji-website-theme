@@ -93,7 +93,7 @@
                 "position": 2,
                 "name": "{{ $section | title }}",
                 "item": "{{ $home }}{{ $section }}"
-            {{ else if eq $section "static" }}
+            {{ else if eq $section "fixed" }}
                 "@type": "ListItem",
                 "position": 2,
                 "name": "{{ .Title | title }}",

@@ -18,7 +18,7 @@
                         {{ end }}
                     {{ else if eq $section "blog" }}
                         <li><a style="color: gray;" href="{{ $home }}{{ $section }}"> {{ $section | title }} </a></li>
-                    {{ else if eq $section "static" }}
+                    {{ else if eq $section "fixed" }}
                         <li>{{ .Title | title }}</li>
                     {{ end }}
 
