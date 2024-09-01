@@ -239,6 +239,9 @@
     .footer_copyright {
       color: $dark-gray;
       opacity: 1;
+      a {
+        text-decoration: none;
+      }
     }
   }
 

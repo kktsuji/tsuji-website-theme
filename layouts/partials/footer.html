@@ -6,8 +6,19 @@
         {{- partial "socialIcons.html" site.Params.socialIcons -}}
     </div>
     <small class="footer_copyright">
-        © {{ now.Format "2006" }} {{ .Site.Params.author.name }}.
-        {{ T "footer.disclaimer" | safeHTML }}
+        <ul>
+            {{ range .Site.Sections }}
+            {{ if eq .Section "fixed" }}
+            {{ range .Pages.ByWeight }}
+            <il><a href="{{ .Permalink }}"> {{ .Title }} </a></il><il>/</il>
+            {{ end }} {{/* end range .Pages */}}
+            {{ end }} {{/* end if eq .Section "fixed" */}}
+            {{ end }} {{/* end range .Sections */}}
+            <il><a href="{{ .Site.Home.Permalink }}">
+                © {{ now.Format "2006" }} {{ .Site.Params.author.name }}. </a></il>
+                {{ T "footer.disclaimer" | safeHTML }}
+            </il>
+        </ul>
     </small>
 </footer>
 
