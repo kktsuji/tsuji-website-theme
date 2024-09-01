@@ -1,0 +1,63 @@
+<details class="toc" open>
+    <summary><b>{{ T "single.table_of_contents" }}</b></summary>
+    <nav id="TableOfContents">
+        <ul>
+            {{ range .Site.Home.Sections.ByWeight  }}
+            {{ $section := .Title }}
+            {{ $id := partial "functions/getIdStr.html" $section }}
+            <li><a href="#{{ $id }}">{{ .Title }}</a></li>
+            
+            {{ if eq .Section "til"}}
+            <ul>
+                {{ range .Sites.First.Sections.ByTitle }}
+                {{ if eq .Section "til" }}
+                {{ range .Sections.ByTitle }}
+                {{ $id := partial "functions/getIdStr.html" .Title }}
+                <li><a href="#{{ $id }}">{{ .Title }}</a></li>
+                {{ end }} {{/* end range .Sections */}}
+                {{ end }} {{/* end if eq .Section "til" */}}
+                {{ end }} {{/* end range .Sites.First.Sections */}}
+            </ul>
+            {{ end }} {{/* end if eq .Section "til" */}}
+            {{ end }} {{/* end range .Sections */}}
+        </ul>
+    </nav>
+</details>
+
+<p>{{ .Get 0 }}</p>
+
+{{ range .Site.Home.Sections.ByWeight  }}
+
+{{ $id := partial "functions/getIdStr.html" .Section }}
+<h2 class="post-year" id="{{ $id }}">{{ .Title | title }}</h2>
+
+{{ if eq .Section "til"}}
+
+    {{ range .Sites.First.Sections.ByTitle }}
+    {{ if eq .Section "til" }}
+    {{ range .Sections.ByTitle}}
+
+        {{ $id := partial "functions/getIdStr.html" .Title }}
+        <h3 class="post-year" id="{{ $id }}">{{ .Title | title }}</h2>
+
+            {{ range .Pages.ByTitle }}
+
+            {{ partial "postCard" . }}
+
+            {{ end }} {{/* end range .Pages */}}
+
+    {{ end }} {{/* end range .Sections */}}
+    {{ end }} {{/* end if eq .Section "til" */}}
+    {{ end }} {{/* end range .Sites.First.Sections */}}
+
+{{ else }}
+
+    {{ range .Pages.ByTitle }}
+
+    {{ partial "postCard" . }}
+
+    {{ end }} {{/* end range .Pages */}}
+
+{{ end }}
+
+{{ end }} {{/* end range .Sections */}}
