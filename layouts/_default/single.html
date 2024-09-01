@@ -19,7 +19,9 @@
                     {{ else if eq $section "blog" }}
                         <li><a style="color: gray;" href="{{ $home }}{{ $section }}"> {{ $section | title }} </a></li>
                     {{ else if eq $section "fixed" }}
-                        <li>{{ .Title | title }}</li>
+                        {{ $lastElement := index (split .Permalink "/") (sub (len (split .Permalink "/")) 2) }}
+                        {{ $lastElement := replace $lastElement "-" " " }}
+                        <li>{{ $lastElement | title }}</li>
                     {{ end }}
 
                 </ul>
