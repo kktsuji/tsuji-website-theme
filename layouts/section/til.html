@@ -5,17 +5,17 @@
     </header>
     <main class="page-content" aria-label="Content">
         <p>There are {{ len (where .Site.RegularPages "Section" "==" .Section) }} TILs.</p>
-        <p>Categories:
-            <div class="category-list">
+        <div class="category-list">
             <ul>
+            <li>Categories:</li>
             {{ range .Sections.ByTitle }}
             <li>
             <a style="color: gray;" href="#{{ partial "functions/getIdStr.html" .Title }}">{{ .Title }} ({{ len .Pages }})</a>
-            <li>/</li>
+            <li style="color: gray">/</li>
             {{ end }}
             </ul>
-            </div>
-        </p>
+        </div>
+        
 
         {{ range .Sections.ByTitle }}
         {{ $section := .Title }}
