@@ -18,6 +18,10 @@ html {
         background-color: $go-top-bg-hover;
     }
 
+    @include media-query($on-mobile) {
+        display: none;
+    }
+
     // center align icon vertically
     svg {
         margin: auto;
