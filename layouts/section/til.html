@@ -4,10 +4,24 @@
         <h1 class="header-title center">{{ .Title }}</h1>
     </header>
     <main class="page-content" aria-label="Content">
+        <p>There are {{ len (where .Site.RegularPages "Section" "==" .Section) }} TILs.</p>
+        <p>Categories:
+            <div class="category-list">
+            <ul>
+            {{ range .Sections.ByTitle }}
+            <li>
+            <a style="color: gray;" href="#{{ partial "functions/getIdStr.html" .Title }}">{{ .Title }} ({{ len .Pages }})</a>
+            <li>/</li>
+            {{ end }}
+            </ul>
+            </div>
+        </p>
+
         {{ range .Sections.ByTitle }}
         {{ $section := .Title }}
         {{ $id := partial "functions/getIdStr.html" $section }}
         <h2 class="post-year" id="{{ $id }}">{{ $section }}</h2>
+
 
         {{/* create a list of posts for each month, with month as heading */}}
 
