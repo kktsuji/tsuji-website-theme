@@ -4,19 +4,25 @@
         <h1 class="header-title center">{{ .Title }}</h1>
     </header>
     <main class="page-content" aria-label="Content">
-        <p>There are {{ len (where .Site.RegularPages "Section" "==" .Section) }} TILs.</p>
+        <p>There are {{ len (where .Sites.First.RegularPages "Section" "==" .Section) }} TILs.</p>
         <div class="category-list">
             <ul>
             <li>Categories:</li>
+            {{ range .Sites.First.Sections.ByTitle }}
+            {{ if eq .Section "til" }}
             {{ range .Sections.ByTitle }}
             <li>
             <a style="color: gray;" href="#{{ partial "functions/getIdStr.html" .Title }}">{{ .Title }} ({{ len .Pages }})</a>
+            </li>
             <li style="color: gray">/</li>
-            {{ end }}
+            {{ end }} {{/* end range .Sections */}}
+            {{ end }} {{/* end if eq .Section "til" */}}
+            {{ end }} {{/* end range .Sites.First.Sections */}}
             </ul>
         </div>
         
-
+        {{ range .Sites.First.Sections.ByTitle }}
+        {{ if eq .Section "til" }}
         {{ range .Sections.ByTitle }}
         {{ $section := .Title }}
         {{ $id := partial "functions/getIdStr.html" $section }}
@@ -30,8 +36,9 @@
         {{ partial "postCard" . }}
 
         {{ end }} {{/* end range .Pages */}}
-
         {{ end }} {{/* end range .Sections */}}
+        {{ end }} {{/* end if eq .Section "til" */}}
+        {{ end }} {{/* end range .Sites.First.Sections */}}
 
     </main>
 </div>
