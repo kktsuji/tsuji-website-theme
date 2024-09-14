@@ -14,6 +14,7 @@
             {{ end }} {{/* end range .Pages */}}
             {{ end }} {{/* end if eq .Section "fixed" */}}
             {{ end }} {{/* end range .Sections */}}
+            <il class="footer_mobile"><br></il>
             <il><a href="{{ .Site.Home.Permalink }}">
                 © {{ now.Format "2006" }} {{ .Site.Params.author.name }}. </a></il>
                 {{ T "footer.disclaimer" | safeHTML }}
