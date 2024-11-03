@@ -280,6 +280,15 @@
       }
     }
   }
+
+  .comments {
+    .github-dark {
+      display: block;
+    }
+    .github-light {
+      display: none;
+    }
+  }
 }
 
 // support JS disabled environment with media query
