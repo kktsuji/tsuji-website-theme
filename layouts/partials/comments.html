@@ -1,6 +1,27 @@
 {{- if ne .Section "fixed" -}}
+<script>
+    var theme = localStorage.getItem('data-theme') == null ? 'dark' : 'light';
+</script>
+
 <div class="comments">
-    {{ partial "functions/githubComments.html" "github-dark" }}
-    {{ partial "functions/githubComments.html" "github-light" }}
+    <script src="https://giscus.app/client.js"
+        data-repo="kktsuji/tsuji-website"
+        data-repo-id="R_kgDOK7trpw"
+        data-category="Comments"
+        data-category-id="DIC_kwDOK7trp84Cj80B"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="{{ .Site.Params.defaultColor }}"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+    </script>
 </div>
+
+<script>
+    document.querySelector('script[src="https://giscus.app/client.js"]').setAttribute('data-theme', theme);
+</script>
 {{- end -}}

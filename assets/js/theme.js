@@ -37,11 +37,23 @@
         if (state === THEMES.DARK) {
             document.documentElement.classList.add(THEMES.DARK);
             document.documentElement.classList.remove(THEMES.LIGHT);
+            setGiscusTheme(THEMES.DARK);
         } else if (state === THEMES.LIGHT) {
             document.documentElement.classList.remove(THEMES.DARK);
             document.documentElement.classList.add(THEMES.LIGHT);
+            setGiscusTheme(THEMES.LIGHT);
         }
     };
+
+    function setGiscusTheme(theme) {
+        var iframe = document.querySelector('.giscus-frame');
+
+        if (iframe) {
+        var url = new URL(iframe.src);
+        url.searchParams.set('theme', theme);
+        iframe.src = url.toString();
+        }
+    }
 
     // init theme ASAP, then do the rest.
     initTheme(getThemeState());
