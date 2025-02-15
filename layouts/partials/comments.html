@@ -1,6 +1,7 @@
 {{- if ne .Section "fixed" -}}
 <script>
-    var theme = localStorage.getItem('data-theme') == null ? 'dark' : 'light';
+    const body = document.documentElement;
+    var theme = body.getAttribute("class");
 </script>
 
 <div class="comments">
