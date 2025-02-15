@@ -54,6 +54,10 @@
         color: $dark-text-link-blue;
       }
     }
+
+    h2 {
+      border-bottom: 1px solid $dark-light;
+    }
   }
 
   // ToC

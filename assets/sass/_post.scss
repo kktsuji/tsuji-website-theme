@@ -146,6 +146,8 @@
 
   h2 {
     @include relative-font-size(1.375);
+    border-bottom: 1px solid $light;
+    padding-bottom: 5px;
   }
 
   h3 {
