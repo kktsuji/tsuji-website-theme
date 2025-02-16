@@ -159,6 +159,12 @@
     }
 
   }
+
+  .footer_mobile {
+    @media screen and (min-width: 500px) {
+      display: none;
+    }
+  }
 }
 
 .not-found {
