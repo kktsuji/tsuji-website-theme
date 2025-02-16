@@ -15,7 +15,7 @@
         {{ end }} {{/* end range .Sections */}}
         <span class="footer_mobile"><br></span>
         <a href="{{ .Site.Home.Permalink }}">
-            © {{ now.Format "2006" }} {{ .Site.Params.author.name }}</a>
+            © 2024-{{ now.Format "2006" }} {{ .Site.Params.author.name }}</a>
             {{ T "footer.disclaimer" | safeHTML }}
     </small>
 </footer>
