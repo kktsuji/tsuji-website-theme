@@ -19,3 +19,11 @@
     display: inline;
     margin-right: 0.3rem; 
 }
+
+// Auto spacing between Japanese and English text
+.ja-en-space {
+    &::before {
+        content: '\00A0'; // non-breaking space
+        font-size: 1.0em; // Makes the space narrower
+    }
+}
