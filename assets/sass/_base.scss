@@ -240,6 +240,12 @@ blockquote {
   padding-left: $spacing-full;
   @extend %clearfix;
 
+  // デスクトップPCモニタ：幅を広げる
+  @media screen and (min-width: 1440px) {
+    max-width: -webkit-calc(#{$wide-size} - (#{$spacing-full} * 2));
+    max-width: calc(#{$wide-size} - (#{$spacing-full} * 2));
+  }
+
   @include media-query($on-mobile) {
     max-width: -webkit-calc(#{$narrow-size} - (#{$spacing-full}));
     max-width: calc(#{$narrow-size} - (#{$spacing-full}));
