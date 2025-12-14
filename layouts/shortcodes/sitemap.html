@@ -3,26 +3,18 @@
     <nav id="TableOfContents">
         <ul>
             {{ range .Site.Home.Sections.ByWeight  }}
-                {{ if not (eq .Section "til") }}
-                    {{ $section := .Title }}
-                    {{ $id := partial "functions/getIdStr.html" $section }}
-                    <li><a href="#{{ $id }}">{{ .Title }}</a></li>
-                {{ end }}
-            {{ end }} {{/* end range .Sections */}}
-
-            {{ with .Site.Home }}
-                {{ range $firstSection := (where .Sites.First.Sections "Section" "til") }}
-                    {{ $section := .Title }}
-                    {{ $id := partial "functions/getIdStr.html" $section }}
-                    <li><a href="#{{ $id }}">{{ .Title }}</a></li>
+                {{ $section := .Title }}
+                {{ $id := partial "functions/getIdStr.html" $section }}
+                <li><a href="#{{ $id }}">{{ .Title }}</a></li>
+                {{ if eq .Section "til" }}
                     <ul>
                         {{ range .Sections.ByTitle }}
                         {{ $id := partial "functions/getIdStr.html" .Title }}
                         <li><a href="#{{ $id }}">{{ .Title }}</a></li>
                         {{ end }} {{/* end range .Sections */}}
                     </ul>
-                {{ end }} {{/* end range .Sites.First.Sections */}}
-            {{ end }} {{/* end with .Site.Home */}}
+                {{ end }}
+            {{ end }} {{/* end range .Sections */}}
         </ul>
     </nav>
 </details>
@@ -31,27 +23,10 @@
 
 {{ range .Site.Home.Sections.ByWeight  }}
 
-    {{ if not (eq .Section "til")}}
-
-        {{ $id := partial "functions/getIdStr.html" .Section }}
-        <h2 class="post-year" id="{{ $id }}">{{ .Title | title }}</h2>
-
-            {{ range .Pages.ByTitle }}
-
-            {{ partial "postCard" . }}
-
-        {{ end }} {{/* end range .Pages */}}
-
-    {{ end }} {{/* end if not (eq .Section "til") */}}
-
-{{ end }} {{/* end range .Sections */}}
-
-{{ with .Site.Home }}
-
-    {{ range $firstSection := (where .Sites.First.Sections "Section" "til") }}
-
-    {{ $id := partial "functions/getIdStr.html" .Title }}
+    {{ $id := partial "functions/getIdStr.html" .Section }}
     <h2 class="post-year" id="{{ $id }}">{{ .Title | title }}</h2>
+
+    {{ if eq .Section "til" }}
 
         {{ range .Sections.ByTitle}}
 
@@ -66,6 +41,14 @@
 
         {{ end }} {{/* end range .Sections */}}
 
-    {{ end }} {{/* end range .Sites.First.Sections */}}
+    {{ else }}
 
-{{ end }} {{/* end with .Site.Home */}}
+        {{ range .Pages.ByTitle }}
+
+            {{ partial "postCard" . }}
+
+        {{ end }} {{/* end range .Pages */}}
+
+    {{ end }}
+
+{{ end }} {{/* end range .Sections */}}
