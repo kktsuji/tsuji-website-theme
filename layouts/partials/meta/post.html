@@ -2,7 +2,7 @@
     {{ $ISO_date := dateFormat "2006-01-02T15:04:05Z0700" .Date | safeHTML }}
     <!-- Pagination meta tags for list pages only -->
     {{ if ne .Page.Kind "page" }}
-    {{ $paginator := .Paginate (where .Pages "Section" "blog") }}
+    {{ $paginator := .Paginate (where .Pages "Section" "posts") }}
     {{ if $paginator }}
     <link rel="first" href="{{ $paginator.First.URL }}" />
     <link rel="last" href="{{ $paginator.Last.URL }}" />
@@ -73,7 +73,7 @@
         }
         {{ $section := .Section }}
         ,{
-            {{ if eq $section "til" }}
+            {{ if eq $section "posts" }}
                 "@type": "ListItem",
                 "position": 2,
                 "name": "{{ $section | upper }}",
@@ -88,11 +88,6 @@
                     "item": "{{ $home }}{{ $section }}#{{ $id }}"
                 {{ end }}
                 {{ end}}
-            {{ else if eq $section "blog" }}
-                "@type": "ListItem",
-                "position": 2,
-                "name": "{{ $section | title }}",
-                "item": "{{ $home }}{{ $section }}"
             {{ else if eq $section "fixed" }}
             {{ $lastElement := index (split .Permalink "/") (sub (len (split .Permalink "/")) 2) }}
             {{ $lastElement := replace $lastElement "-" " " }}

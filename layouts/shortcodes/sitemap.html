@@ -6,7 +6,7 @@
                 {{ $section := .Title }}
                 {{ $id := partial "functions/getIdStr.html" $section }}
                 <li><a href="#{{ $id }}">{{ .Title }}</a></li>
-                {{ if eq .Section "til" }}
+                {{ if eq .Section "posts" }}
                     <ul>
                         {{ range .Sections.ByTitle }}
                         {{ $id := partial "functions/getIdStr.html" .Title }}
@@ -26,7 +26,7 @@
     {{ $id := partial "functions/getIdStr.html" .Section }}
     <h2 class="post-year" id="{{ $id }}">{{ .Title | title }}</h2>
 
-    {{ if eq .Section "til" }}
+    {{ if eq .Section "posts" }}
 
         {{ range .Sections.ByTitle}}
 

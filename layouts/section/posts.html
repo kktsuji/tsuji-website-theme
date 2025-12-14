@@ -4,7 +4,7 @@
         <h1 class="header-title center">{{ .Title }}</h1>
     </header>
     <main class="page-content" aria-label="Content">
-        <p>There are {{ len (where .Site.RegularPages "Section" "==" .Section) }} TILs.</p>
+        <p>There are {{ len (where .Site.RegularPages "Section" "==" .Section) }} Posts.</p>
         <div class="category-list">
             <ul>
             <li>Categories:</li>
